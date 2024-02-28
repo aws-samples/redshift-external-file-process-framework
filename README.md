@@ -36,16 +36,14 @@ This external file framework is running Lambda from S3 put event and fetching co
 * The Lambda implementation requires the package **pg8000-layer.zip** added as a Lambda layer. 
 This Lambda layer is required to establish a persistent connection with the Redshift/RDS postres database to get the configuration about files.  The Lambda Layer defined in seperate repository 
 
-<b> Note: 
+<b> Note: </b>
+- As part of solution you will deploy two lambdas (external-file-process-logging and external-file-process), make sure both of them have same role attached, this is required to check status of Redshift Query statment 
 - Make sure Lambda is able to establish persistent connection with source(postgres) and destination(Redshift), Amazon SNS, AWS SecretsManager and Amazon S3 </b>
-References:
-https://repost.aws/knowledge-center/sns-topic-lambda
-https://repost.aws/knowledge-center/lambda-secret-vpc
-https://docs.aws.amazon.com/redshift/latest/mgmt/security-private-link.html
-https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc-endpoints.html
-
-<b> 
-- As part of solution you will deploy two lambdas (external-file-process-logging and external-file-process), make sure both of them have same role attached, this is required to check status of Redshift Query statment </b>
+<br>References:<br>
+https://repost.aws/knowledge-center/sns-topic-lambda <br>
+https://repost.aws/knowledge-center/lambda-secret-vpc <br>
+https://docs.aws.amazon.com/redshift/latest/mgmt/security-private-link.html <br>
+https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc-endpoints.html <br>
 
 
 #### Environment Variables ####
