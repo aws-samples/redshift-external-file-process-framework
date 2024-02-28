@@ -44,7 +44,7 @@ VALUES
         ',',
         'N',
         'N',
-        'call rdsftetl.prc_process_etl_subgroup(''external_file_hospital_cost_report'',''NC'',1);',
+        'call rdsftorchestration.execute_sql_from_table(''rdsftcore'',''hospital_cost_report'',''2020-01-01 17:49:29'',''2030-01-01 17:49:29'');',
         'N',
         NULL,
         NULL,

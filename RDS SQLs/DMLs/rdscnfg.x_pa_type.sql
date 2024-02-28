@@ -39,7 +39,7 @@ VALUES
         '|',
         'N',
         'N',
-        'call rdsftetl.prc_process_etl_subgroup(''external_file_dc_x_pa_flavor'',''NC'',1);',
+        'call rdsftorchestration.execute_sql_from_table(''rdsftcore'',''dc_x_pa_flavor'',''2020-01-01 17:49:29'',''2030-01-01 17:49:29'');',
         'N',
         NULL,
         NULL,
