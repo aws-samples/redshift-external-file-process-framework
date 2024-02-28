@@ -1,0 +1,18 @@
+{
+  "detail": {
+    "statementName": [
+      {
+        "suffix": "|external_file_frameowrk"
+      }
+    ]
+  },
+  "detail-type": [
+    "Redshift Data Statement Status Change"
+  ],
+  "resources": [
+    "arn:aws:redshift:<region>:<account>:cluster:<cluster>"
+  ],
+  "source": [
+    "aws.redshift-data"
+  ]
+}

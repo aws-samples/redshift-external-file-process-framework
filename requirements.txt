@@ -1,0 +1,8 @@
+boto3
+pg8000
+os
+json
+zipfile
+sys
+unicodedata
+datetime
