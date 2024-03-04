@@ -8,14 +8,12 @@
 
 ### Introduction ###
 
-
-This external file framework is running Lambda from S3 put event and fetching configuration for that particular file to check which table to load, preprocessing required or not , header/trailor check, breaking of files into multiple files depending on the configuration. Once it fetches all the info, it does all the preprocessing and prepare automated copy command on the fly and submit to to Redshift via Redshift Data API call and once the process is complete , it will send the event back with status "FINISHED, FAILED, ABORTED"
+This framework operates by triggering Lambda functions through S3 put events and retrieves specific configuration details for each file, determining the appropriate actions such as whether preprocessing is required, header/trailer checks, and if the file needs to be split based on the configuration. Once all necessary information is gathered, the framework conducts preprocessing tasks and dynamically generates automated copy commands, which are then submitted to Redshift via the Redshift Data API. Upon completion of the process, the framework sends an event back indicating the status, whether it's "FINISHED," "FAILED," or "ABORTED." It is a fully automated solution capable of handling various file formats like txt, csv, gz, fixed_length, dat, etc., using a single configuration. This framework has been successfully deployed for customers, significantly reducing external file processing time and custom validation efforts by up to 90%.
 
 
 * external-file-process - This Lambda executes copy command depending on the configuration defined in RDS postgres table rdsftetl.external_file_config. For this, S3 put event pointing to your input S3 bucket is required.
 
 * external-file-process-logging - This Lambda read the event and log audit information in postgres_config_table passed from environment variable and trigger transformation query.
-
 
 <br/>
 
@@ -38,6 +36,7 @@ This Lambda layer is required to establish a persistent connection with the Reds
 <b> Note: </b>
 - As part of solution you will deploy two lambdas (external-file-process-logging and external-file-process), make sure both of them have same role attached, this is required to check status of Redshift Query statment 
 - Make sure Lambda is able to establish persistent connection with source(postgres) and destination(Redshift), Amazon SNS, AWS SecretsManager and Amazon S3 </b>
+
 <br>References:<br>
 https://repost.aws/knowledge-center/sns-topic-lambda <br>
 https://repost.aws/knowledge-center/lambda-secret-vpc <br>
@@ -92,5 +91,3 @@ To directly navigate to function logs using the Lambda console:
 
 * This framework is sending notification for success and failure to SNS whose arn is passed in environment variable (sns_topic_arn).
 * Whoever wants to receives notification from this framework can subscribe to this SNS topic from SNS service console once.
-
-
