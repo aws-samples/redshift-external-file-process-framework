@@ -6,7 +6,6 @@
 ![Scheme](External_File_Ingestion_Framework.png)
 
 
-
 ### Introduction ###
 
 
