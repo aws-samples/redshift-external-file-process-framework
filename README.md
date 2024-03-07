@@ -103,8 +103,8 @@ To directly navigate to function logs using the Lambda console:
 6. Execute Redshift Orchestration SQLs
 7. Execute Redshift Core, Stage and Error DDLs
 8. Execute Redshift DMLs
-9. Create a S3 bucket with two folders external_input and archive
-10. Create S3 put event for lambda <i> external-file-process </i>> pointing to your input S3 bucket for path external_input. 
+9. Create a S3 bucket with two folders<i> external_input</i> and <i>archive</i>
+10. Create S3 put event for lambda <i> external-file-process </i> pointing to your input S3 bucket for path external_input. 
 11. Create event bridge pattern using <i>Orchestration/Event Bridge Pattern/Event_bridge.json</i>
 Reference: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html#eb-create-pattern
 12. Upload sample file in S3(This would trigger required Lambdas and start the process)
